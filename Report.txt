@@ -1,0 +1,73 @@
+                                                                          Report:
+Introduction and Background information of battleship game:
+
+The battleship game was made using object-oriented programming principles and modular programming to gain experience in C++ game development, which is a career I'm hoping to learn more about. I chose this project to try to create a functional and fun version of the classic board game, it's a game I enjoyed playing as a child and still do play the classic one. This game was created featuring a human player competing against a computer opponent until all ships are sunk. The goal of this project was to design a modular and maintainable program that demonstrates the key C++ concepts we've learned. The game included features like the customizable board size, manual ship placement, the hits and misses tracking, ship sinking awareness functionality, game over condition, and the undo functionality all of these things were included to add to the player experience and provide a strategic advantage. 
+
+
+Design Decisions:
+So this project was heavily influenced by object-oriented programming, modularity, and code reusability by breaking the code down into classes for better organization. For example the GameBoard class manages the game board conditions, the ship placement, and attack results and it contains the 2D array gridArea to represent the board and a stack moveHistory to do the undo functionality. The GamePlayer class was used as an abstract base class for both the computer and human player's which defines the moves made getMoves. The HumanOpponent and ComputerOpponent classes handle player's implementation. The ShipItems class handles the collection of ships, tracking whether they are afloat or sunk. The ShipItems class also uses a linked lists Ship* head to store the ships. I chose the data structure because it provides an efficient way to manage the ships and add and remove ships. I used structures like the AttackResult, Coordinates, and Move and they were used to organize the data. My program also includes streams specifically iostream for user interaction, its heavily used throughout my program. The cout is used to display instructions and to ask for user input while the cin is used to receive user input for coordinates, ship placement, and other user interactions. This design allows new game features to be added in the future. 
+
+
+C++ Concepts that I used 
+Classes:
+GameBoard
+GamePlayer
+HumanOpponent
+ComputerOpponent
+ShipItems
+
+Objects:
+playerBoard
+computerBoard
+player1 
+player2 
+shipItems 
+
+Inheritance:
+HumanOpponent : GamePlayer
+ComputerOpponent : GamePlayer
+
+Polymorphism:
+getMove (virtual function in GamePlayer)
+getMove (override in HumanOpponent)
+getMove (override in ComputerOpponent)
+
+Dynamic Memory Allocation:
+gridArea (in GameBoard constructor)
+newShip (in ShipItems::addShip)
+
+Data Structures:
+moveHistory (stack in GameBoard)
+head (Ship\* in ShipItems)
+
+Structures:
+AttackResult
+Coordinates
+Move
+Ship
+
+Pointers: 
+char** gridArea 
+Ship* head 
+Ship* next 
+
+Random Number Generation:
+rd (std::random\_device)
+gen (std::mt19937)
+rowDist (std::uniform\_int\_distribution)
+colDist (std::uniform\_int\_distribution)
+
+Input/Output Streams:
+cout
+std::cin
+
+Exception Handling:
+invalid\_argument (catch in HumanOpponent::getMove)
+out\_of\_range (catch in HumanOpponent::getMove)
+
+
+Challenges Encountered:
+So some challenges I encountered were the undo functionality, as it got tricky because the game had to remember everything that happened in the previous turn about where the player attacked and what ships were hit. The next one was placing a SFML library because it was tough to make it work as I didn't know how SFML worked at that time but now I do. The encountered issue was that I didn't know how to install the library correctly and the linking of the SFML libraries during compilation was diffucult to implement. The next was designing a modular program which was just figuring out how to organize the code into separate files it was hard to figure out which function was going to talk to the others and arranging them correctly, I encountered many errors in this part as it wouldnt compile correctly each time. The next was creating a challenging ai opponent because it was difficult to make a good ai opponent, as I didnt want it to be easy or hard so I had to figure out how to implement it correctly. 
+
+
+Insights that I gained were learning Object Oriented programming design due to all the classes and Objects used for creating the modular files and learning to implement modular programming as it made my code easier to read. The next is learning how to use data structures to effectively solve specific problems for example I used stack and linked lists the stacks was perfect for implementing the undo functionality and the linked lists provided a way to manage the ships. I gained more game development knowledge like how to handle game logic, handle input, and how to set up a display board. Another thing I could say that I gained some insights is in testing as I didnt know how to do that until now and never had done it in any of my codes before, but I still don't know if I did it correctly. 
